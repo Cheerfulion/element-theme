@@ -1,0 +1,8 @@
+
+## 前言
+由于 element 的 [在线主题编辑器](https://element.eleme.cn/#/zh-CN/theme/preview) 访问 503，因此通过该项目对 element 主题进行修改。
+
+同时有些地方感觉 element 不够美观，增加 custom.scss 对 element 进行定制。
+官方定制主题文档：[https://element.eleme.cn/#/zh-CN/component/custom-theme](https://element.eleme.cn/#/zh-CN/component/custom-theme)
+
+## 使用

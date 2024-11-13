@@ -1,0 +1,55 @@
+
+# Ignore build files
+/dist
+/theme
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# JetBrains
+.idea/
+*.iml
+
+# Visual Studio
+.vscode/
+*.suo
+*.user
+*.userprefs
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Other
+*.swp
+*~ 

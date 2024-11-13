@@ -1,0 +1,27 @@
+{
+  "name": "element-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "element-theme": "^2.0.1",
+    "element-theme-chalk": "^2.15.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "element-theme": {
+    "browsers": [
+      "ie > 9",
+      "last 2 versions"
+    ],
+    "out": "./dist",
+    "config": "./element-variables.scss",
+    "theme": "element-theme-chalk",
+    "minimize": true,
+    "components": []
+  }
+}
