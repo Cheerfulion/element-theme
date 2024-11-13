@@ -1,27 +1,32 @@
 {
   "name": "element-theme",
   "version": "1.0.0",
-  "description": "",
+  "description": "A theme for Element UI",
   "main": "index.js",
   "dependencies": {
     "element-theme": "^2.0.1",
     "element-theme-chalk": "^2.15.14"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0"
+  },
   "scripts": {
+    "init": "et --init",
+    "dev": "gulp --watch",
+    "build": "et && gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ionluo",
   "license": "ISC",
   "element-theme": {
     "browsers": [
       "ie > 9",
       "last 2 versions"
     ],
-    "out": "./dist",
+    "out": "./theme",
     "config": "./element-variables.scss",
     "theme": "element-theme-chalk",
-    "minimize": true,
-    "components": []
+    "minimize": true
   }
 }
