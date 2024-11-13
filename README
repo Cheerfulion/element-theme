@@ -1,8 +1,28 @@
 
-## 前言
+# element-theme
 由于 element 的 [在线主题编辑器](https://element.eleme.cn/#/zh-CN/theme/preview) 访问 503，因此通过该项目对 element 主题进行修改。
 
 同时有些地方感觉 element 不够美观，增加 custom.scss 对 element 进行定制。
 官方定制主题文档：[https://element.eleme.cn/#/zh-CN/component/custom-theme](https://element.eleme.cn/#/zh-CN/component/custom-theme)
 
+## 版本
+
+`1.0.0`
+
 ## 使用
+```bash
+# 安装依赖（node === v10.24.1, npm === v6.14.12）
+npm install
+
+# 启动开发环境（只监听custom的scss文件，其他文件不监听）
+npm run dev
+
+# 编译生产环境
+npm run build
+```
+
+# 许可证
+此项目遵循 ISC 许可证。
+
+# 作者
+ionluo
