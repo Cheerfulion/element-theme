@@ -1,7 +1,7 @@
 
 # Ignore build files
 /dist
-# /theme
+/theme
 
 # Node.js
 node_modules/

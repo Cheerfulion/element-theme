@@ -18,6 +18,13 @@
 .el-button--small {
   padding: 5px 16px; }
 
+.el-button--text {
+  padding-left: 0;
+  padding-right: 0; }
+
+.el-button + .el-button {
+  margin-left: 8px; }
+
 .el-button--default:hover, .el-button--default:focus {
   color: #36B29E;
   border-color: #36B29E;
@@ -379,3 +386,50 @@
     .el-alert.is-dark.el-alert--error .el-alert__title,
     .el-alert.is-dark.el-alert--error .el-alert__description {
       color: #fff; }
+
+/* 
+ * --------------------------------------------------
+ * 对话框（Modal）
+ * -------------------------------------------------- 
+*/
+.el-dialog__header {
+  height: 56px;
+  line-height: 56px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px -1px 0px 0px #F0F0F0 inset;
+  border-radius: 4px 4px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #262626; }
+  .el-dialog__header .el-dialog__title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .el-dialog__header .el-dialog__headerbtn {
+    position: static; }
+
+.el-dialog__body {
+  padding: 24px; }
+
+.el-dialog__footer {
+  padding: 0 24px;
+  box-shadow: 0px 1px 0px 0px #F0F0F0 inset;
+  height: 64px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+
+/* 
+ * --------------------------------------------------
+ * 其他（Other）
+ * -------------------------------------------------- 
+*/
+.el-tag--small {
+  height: 22px;
+  padding: 0 8px;
+  line-height: 20px; }

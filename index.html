@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Element UI 组件示例</title>
+  <!-- https://www.figma.com/design/coK4YCEAN68J4FO7X0edZJ/%E6%B0%B4%E5%88%A9%E5%8E%85%E8%A7%84%E8%8C%83?node-id=178-5262&node-type=frame&t=57pjVieSOzrp10n9-0 -->
   <link rel="stylesheet" href="./theme/index.css">
   <link rel="stylesheet" href="./theme/custom.css">
   <!-- <link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/theme-chalk/index.css" rel="stylesheet"> -->
@@ -44,7 +45,7 @@
         </div>
         <el-divider></el-divider>
         <!-- <h2>文字链接</h2>
-        <div>
+        <div> 
           <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
           <el-link type="primary">主要链接</el-link>
           <el-link type="success">成功链接</el-link>
@@ -163,16 +164,34 @@
             <el-table-column prop="date" label="日期" width="180"></el-table-column>
             <el-table-column prop="name" label="姓名" width="180"></el-table-column>
             <el-table-column prop="address" label="地址"></el-table-column>
+            <el-table-column label="操作" width="180">
+              <template slot-scope="scope">
+                <el-button type="text" size="medium">编辑</el-button>
+                <el-button type="text" size="medium">删除</el-button>
+              </template>
+            </el-table-column>
           </el-table>
         </div>
         <el-divider></el-divider>
 
         <h2>Tag</h2>
         <div>
-          <el-tag type="success" closable>成功</el-tag>
-          <el-tag type="info" closable>信息</el-tag>
-          <el-tag type="warning" closable>警告</el-tag>
-          <el-tag type="danger" closable>危险</el-tag>
+          <el-tag type="success">成功</el-tag>
+          <el-tag type="info">信息</el-tag>
+          <el-tag type="warning">警告</el-tag>
+          <el-tag type="danger">危险</el-tag>
+          <br>
+          <br>
+          <el-tag effect="dark">Dark</el-tag>
+          <el-tag effect="plain">Plain</el-tag>
+          <el-tag hit>hit</el-tag>
+          <el-tag closable>closable</el-tag>
+          <br>
+          <br>
+          <el-tag size="large">大型标签</el-tag>
+          <el-tag size="medium">中等标签</el-tag>
+          <el-tag size="small">小型标签</el-tag>
+          <el-tag size="mini">超小标签</el-tag>
         </div>
         <el-divider></el-divider>
 
@@ -315,7 +334,7 @@
 
         <h2>Dialog</h2>
         <div>
-          <el-button type="text" @click="openDialog">打开对话框</el-button>
+          <el-button type="detault" @click="openDialog">打开对话框</el-button>
           <el-dialog
             title="提示"
             :visible.sync="dialogVisible">
@@ -396,6 +415,9 @@
   <script src="./lib/vue.js"></script>
   <script src="./lib/element-ui/index.js"></script>
   <script>
+     // 在创建 Vue 实例之前，设置 Element UI 的全局配置
+    Vue.prototype.$ELEMENT = { size: 'medium' }; // 设置默认组件的 size 为 medium
+
     new Vue({
       el: '#app',
       data: {
