@@ -5,8 +5,10 @@
 */
 
 // 主题色
-$theme-color: #36B29E; // 单色
-$theme-linear-color: linear-gradient(to right, #83B26B, #3D9CCC); // 渐变色
+$theme-color: #0074ED; // 单色
+$theme-color-hover: #005DFF; // 单色-悬停或点击
+$theme-color-disabled: #005DFF; // 单色-禁用或加载
+$theme-linear-color: linear-gradient(to right, #005DFF, #0074ED, #00C9F7); // 渐变色
 
 // 辅助色
 $color-success: #28CE8E; // 成功
@@ -21,7 +23,7 @@ $color-text-info: #8C8C8C; // 提示文字
 $color-forbidden: #BFBFBF; // 提示或者禁用
 $color-border: #D9D9D9; // 边框
 $color-line: #F0F0F0; // 分隔线
-$color-bg-gray: #F4F9F7; // 浅灰背景
+$color-bg-gray: #ECEEF1; // 浅灰背景
 $color-bg-white: #FFFFFF; // 纯白背景
 
 // 适老色彩（主要是罗列部分，按需要从里面选择即可）
@@ -55,10 +57,17 @@ $color-bg-light-gray: #F8F9FB; // 浅灰背景
 .el-button--text {
   padding-left: 0;
   padding-right: 0;
+  &.el-button--medium {
+    padding: 8px;
+  }
 }
 
 .el-button+.el-button {
   margin-left: 8px;
+}
+
+.el-button--text + .el-button--text {
+  margin-left: 0;
 }
 
 .el-button--default {
@@ -315,6 +324,7 @@ $color-bg-light-gray: #F8F9FB; // 浅灰背景
     .el-step__description {
       color: $color-text-info;
       font-weight: 400;
+      min-height: 32px;
     }
   }
 }
@@ -328,24 +338,46 @@ $color-bg-light-gray: #F8F9FB; // 浅灰背景
   height: 40px;
   line-height: 40px;
 }
+.el-input-number--large { line-height: 38px; }
 
 .el-input--medium .el-input__inner {
   height: 32px;
   line-height: 32px;
 }
+.el-input-number--medium { line-height: 30px; }
 
 .el-input--small .el-input__inner {
   height: 24px;
   line-height: 24px;
 }
+.el-input-number--small { line-height: 22px; }
 
 .el-input--mini .el-input__inner {
   height: 20px;
   line-height: 20px;
 }
+.el-input-number--mini { line-height: 18px; }
 
-.el-input__inner:hover {
+.el-input__inner:hover,
+.el-select:not(.is-disabled):hover .el-input__inner,
+.el-cascader:not(.is-disabled):hover .el-input__inner {
   border-color: $theme-color;
+}
+
+.el-input.is-disabled .el-input__inner,
+.el-input .el-input__inner[readonly] {
+  background-color: $color-bg-light-gray;
+  color: $color-text-info;
+}
+
+.el-select .el-input .el-input__inner[readonly],
+.el-cascader .el-input .el-input__inner[readonly] {
+  background-color: inherit;
+  color: inherit;
+}
+
+.el-cascader-node:not(.is-disabled):focus, .el-cascader-node:not(.is-disabled):hover {
+  background: mix($theme-color, transparent, 10%);
 }
 
 /* 
@@ -598,12 +630,34 @@ $color-bg-light-gray: #F8F9FB; // 浅灰背景
 
 /* 
  * --------------------------------------------------
- * 其他（Other）
+ * 对话框（MessageBox）
  * -------------------------------------------------- 
 */
-
-.el-tag--small {
-  height: 22px;
-  padding: 0 8px;
-  line-height: 20px;
+.el-message-box {
+  .el-button--small {
+    padding: 8px 16px;
+  }
 }
+
+
+/* 
+ * --------------------------------------------------
+ * 穿梭框（Transfer）
+ * -------------------------------------------------- 
+*/
+.el-transfer {
+  .el-input--small .el-input__inner {
+    height: 32px;
+    line-height: 32px;
+    border-radius: 4px;
+  }
+  .el-transfer__buttons {
+    width: 50px;
+    padding: 0 20px;
+    .el-button {
+      padding: 5px 16px;
+      margin-left: 0;
+    }
+  }
+}
+

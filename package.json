@@ -1,8 +1,11 @@
 {
-  "name": "element-theme",
-  "version": "1.0.0",
+  "name": "@sky/element-theme",
+  "version": "1.1.0",
   "description": "A theme for Element UI",
   "main": "index.js",
+  "publishConfig" : {
+    "registry" : "http://10.44.47.96:8081/repository/npm-hosted/"
+  },
   "dependencies": {
     "element-theme": "^2.0.1",
     "element-theme-chalk": "^2.15.14"
@@ -14,6 +17,7 @@
   "scripts": {
     "init": "et --init",
     "dev": "gulp --watch",
+    "et": "et -w",
     "build": "et && gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,5 +32,8 @@
     "config": "./element-variables.scss",
     "theme": "element-theme-chalk",
     "minimize": true
-  }
+  },
+  "files": [
+    "theme"
+  ]
 }

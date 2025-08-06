@@ -14,7 +14,7 @@
       margin: 0 auto;
       max-width: 95%;
       font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       color: #000;
       line-height: 1.7142857142857142;
@@ -32,16 +32,29 @@
       <el-main>  
         <h2>按钮</h2>
         <div>
-          <el-button type="primary" size="large">主要按钮</el-button>
+          <el-button type="primary">默认大小</el-button>
+          <el-button type="primary" size="large">大</el-button>
+          <el-button type="primary" size="medium">中</el-button>
+          <el-button type="primary" size="small">小</el-button>
+
+          <br><br>
+
+          <el-button type="primary">主要按钮</el-button>
           <el-button size="medium">普通按钮</el-button>
-          <el-button :disabled="true" size="small">禁用按钮</el-button>
-          <el-button type="success" size="medium">成功按钮</el-button>
-          <el-button type="info" size="medium">信息按钮</el-button>
-          <el-button type="warning" size="medium">警告按钮</el-button>
-          <el-button type="danger" size="medium">危险按钮</el-button>
-          <el-button type="text" size="medium">文字按钮</el-button>
-          <el-button type="primary" icon="el-icon-edit" title="图标按钮" size="medium"></el-button>
-          <el-button type="primary" icon="el-icon-search" title="图标按钮" size="medium">搜索</el-button>
+          <el-button :disabled="true">禁用按钮</el-button>
+
+          <br><br>
+
+          <el-button type="success">成功按钮</el-button>
+          <el-button type="info">信息按钮</el-button>
+          <el-button type="warning">警告按钮</el-button>
+          <el-button type="danger">危险按钮</el-button>
+
+          <br><br>
+          
+          <el-button type="text">文字按钮</el-button>
+          <el-button icon="el-icon-edit" title="图标按钮"></el-button>
+          <el-button icon="el-icon-search" title="图标按钮">搜索</el-button>
         </div>
         <el-divider></el-divider>
         <!-- <h2>文字链接</h2>
@@ -77,7 +90,7 @@
         <h2>Checkbox</h2>
         <div>
           <el-checkbox-group v-model="checkbox">
-            <el-checkbox label="1">选项A</el-checkbox>
+            <el-checkbox label="1" disabled>选项A</el-checkbox>
             <el-checkbox label="2">选项B</el-checkbox>
             <el-checkbox label="3">选项C</el-checkbox>
           </el-checkbox-group>
@@ -86,13 +99,27 @@
 
         <h2>Input</h2>
         <div>
-          <el-input v-model="inputText" placeholder="请输入内容"></el-input>
+          大: <el-input v-model="inputText" placeholder="请输入内容" size="large"></el-input>
+          <br><br>
+          中: <el-input v-model="inputText" placeholder="请输入内容" size="medium"></el-input>
+          <br><br>
+          小: <el-input v-model="inputText" placeholder="请输入内容" size="small"></el-input>
+          <br><br>
+          禁用: <el-input v-model="inputText" placeholder="请输入内容" disabled></el-input>
+          <br><br>
+          只读: <el-input v-model="inputText" placeholder="请输入内容" readonly></el-input>
         </div>
         <el-divider></el-divider>
 
         <h2>InputNumber</h2>
         <div>
-          <el-input-number v-model="inputNumber" :min="1" :max="10"></el-input-number>
+          大： <el-input-number v-model="inputNumber" :min="1" :max="10" size="large"></el-input-number>
+          <br><br>
+          中： <el-input-number v-model="inputNumber" :min="1" :max="10" size="medium"></el-input-number>
+          <br><br>
+          小： <el-input-number v-model="inputNumber" :min="1" :max="10" size="small"></el-input-number>
+          <br><br>
+          禁用： <el-input-number v-model="inputNumber" :min="1" :max="10" disabled></el-input-number>
         </div>
         <el-divider></el-divider>
 
@@ -160,6 +187,19 @@
         <h2>Table</h2>
         <div>
           <el-table :data="tableData" style="width: 100%">
+            <el-table-column type="selection" width="55"></el-table-column>
+            <el-table-column prop="date" label="日期" width="180"></el-table-column>
+            <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+            <el-table-column prop="address" label="地址"></el-table-column>
+            <el-table-column label="操作" width="180">
+              <template slot-scope="scope">
+                <el-button type="text" size="medium">编辑</el-button>
+                <el-button type="text" size="medium">删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <br>
+          <el-table :data="[]" style="width: 100%">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column prop="date" label="日期" width="180"></el-table-column>
             <el-table-column prop="name" label="姓名" width="180"></el-table-column>
@@ -286,7 +326,10 @@
 
         <h2>Message</h2>
         <div>
-          <el-button @click="showMessage">显示消息</el-button>
+          <el-button @click="showMessage('info', '这是一条普通提示信息')">这是一条普通提示信息</el-button>
+          <el-button @click="showMessage('success', '这是一条成功提示信息')">这是一条成功提示信息</el-button>
+          <el-button @click="showMessage('warning', '这是一条警告提示信息')">这是一条警告提示信息</el-button>
+          <el-button @click="showMessage('error', '这是一条失败提示信息')">这是一条失败提示信息</el-button>
         </div>
         <el-divider></el-divider>
 
@@ -370,9 +413,13 @@
         <h2>Card</h2>
         <div>
           <el-card>
-            <h3>卡片标题</h3>
-            <div>卡片内容</div>
-            <el-button type="primary">操作按钮</el-button>
+            <div slot="header">
+              <span>卡片标题</span>
+              <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+            </div>
+            <div v-for="o in 4" :key="o">
+              {{'列表内容 ' + o }}
+            </div>
           </el-card>
         </div>
         <el-divider></el-divider>
@@ -566,18 +613,20 @@
             this.loading = false;
           }, 2000);
         },
-        showMessage() {
+        showMessage(type, message) {
           this.$message({
-            type: 'info', // success/warning/info/error
-            message: '这是一条消息提示',
-            duration: 0, // 0 表示消息不自动关闭
-            showClose: true // 显示关闭按钮
+            type: type, // success/warning/info/error
+            message: message,
+            duration: 2000, // 0 表示消息不自动关闭
+            showClose: false // 显示关闭按钮
           });
         },
         openMessageBox() {
-          this.$msgbox({
+          this.$msgbox({ 
             title: '标题',
-            message: '这是一条消息确认框内容'
+            message: '这是一条消息确认框内容',
+            size: 'medium'
+
           });
         },
         notify() {
